@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>API 요청 예시</title>
+</head>
+<body>
+  <h1>API 요청 테스트</h1>
+  <button onclick="sendData()">데이터 보내기</button>
+
+
+
+
+
+  
+  <script>
+    function sendData() {
+      fetch('http://localhost:3000/api/data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: "Alice",
+          age: 25
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("서버 응답:", data);
+      })
+      .catch(error => {
+        console.error("에러 발생:", error);
+      });
+    }
+  </script>
+</body>
+</html>

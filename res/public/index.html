@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Your IP</title>
+</head>
+<body>
+  <h1>Your IP address</h1>
+  <h2>
+      <span id="ip"></span>
+  </h2>
+
+
+
+</body>
+</html>
+<style>
+    html{
+       color-scheme: dark;
+    }
+
+    h1,h2{
+        text-align: center;
+    }
+</style>
+<script>
+    fetch('/api/ip')
+        .then(res => res.text())
+        .then(ip => {
+            document.getElementById('ip').textContent = ip;
+        });
+</script>
